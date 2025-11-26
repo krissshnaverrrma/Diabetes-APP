@@ -1,16 +1,23 @@
 import numpy as np
 from flask import Flask, request, jsonify, render_template
 import pickle
+import os
+
 app = Flask(__name__)
+
+=
 basedir = os.path.abspath(os.path.dirname(__file__))
 model_path = os.path.join(basedir, 'diabetes_model.pkl')
 
-model = pickle.load(open(model_path, 'rb'))
-try:
-    model = pickle.load(open('diabetes_model.pkl', 'rb'))
-except FileNotFoundError:
-    print("Error: Model file not found. Please run train_model.py first.")
-    exit()
+if not os.path.exists(model_path):
+    print(f"⚠️ ERROR: Model file not found at {model_path}")
+    model = None
+else:
+    try:
+        model = pickle.load(open(model_path, 'rb'))
+    except Exception as e:
+        print(f"⚠️ ERROR Loading Pickle: {e}")
+        model = None
 
 
 @app.route('/')
