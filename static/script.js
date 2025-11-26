@@ -36,7 +36,6 @@ document
 
 			if (data.error) throw new Error(data.error);
 
-			// Update Text
 			const title = document.getElementById("resultTitle");
 			const score = document.getElementById("confidenceScore");
 			const iconBox = document.getElementById("resultIcon");
@@ -44,7 +43,6 @@ document
 			title.innerText = data.result;
 			score.innerText = data.confidence;
 
-			// Styling
 			resultCard.classList.remove("Healthy", "Diabetic");
 			resultCard.classList.add(data.result);
 
@@ -57,7 +55,6 @@ document
 				iconBox.innerHTML = '<i class="fa-solid fa-shield-heart"></i>';
 			}
 
-			// Render Chart
 			renderDietChart(data.result);
 			resultCard.classList.remove("hidden");
 		} catch (error) {

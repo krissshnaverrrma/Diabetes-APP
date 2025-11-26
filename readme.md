@@ -32,5 +32,5 @@ Follow these steps to set up the project locally.
 
 ### 1. Clone the Repository
 ```bash
-git clone [https://github.com/your-username/mediai-diabetes-tool.git](https://github.com/your-username/mediai-diabetes-tool.git)
+git clone [https://github.com/krissshnaverrrma/Diabetes-APP.git](https://github.com/krissshnaverrrma/Diabetes-APP.git)
 cd mediai-diabetes-tool
